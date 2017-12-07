@@ -1,0 +1,57 @@
+#django_des--test-input {
+    color: white;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid white;
+    height: 1.15em;
+    margin: -2px 0 0 0;
+}
+
+input#django_des--test-input::-webkit-input-placeholder {
+    color: white;
+    font-weight: lighter;
+    opacity: 0.4;
+}
+    
+input#django_des--test-input:-moz-placeholder { /* Firefox 18- */
+    color: white;
+    font-weight: lighter;
+    opacity: 0.4;
+}
+    
+input#django_des--test-input::-moz-placeholder {  /* Firefox 19+ */
+    color: white;
+    font-weight: lighter;
+    opacity: 0.4;
+}
+    
+input#django_des--test-input:-ms-input-placeholder {  
+    color: white;
+    font-weight: lighter;
+    opacity: 0.4;
+}
+
+#django_des--test-button.error {
+    border-width: 1px;
+    border-color: #ba2121;
+}
+
+#django_des--test-button {
+    display: block;
+    float: left;
+    padding: 3px 12px;
+    background: #999;
+    border: 1px solid white;
+    list-style-type: square;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+    font-size: 11px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-top: -1px;
+}

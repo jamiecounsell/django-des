@@ -31,22 +31,9 @@ Add it to your `INSTALLED_APPS`:
 
     INSTALLED_APPS = (
         ...
-        'django_des.apps.DjangoDesConfig',
+        'django_des',
         ...
     )
-
-Add Django Dynamic Email Settings's URL patterns:
-
-.. code-block:: python
-
-    from django_des import urls as django_des_urls
-
-
-    urlpatterns = [
-        ...
-        url(r'^', include(django_des_urls)),
-        ...
-    ]
 
 Features
 --------
@@ -61,7 +48,8 @@ Does the code actually work?
 ::
 
     source <YOURVIRTUALENV>/bin/activate
-    (myenv) $ pip install tox
+    (myenv) $ pip install -r requirements_dev.txt
+    (myenv) $ pip install -r requirements_test.txt
     (myenv) $ tox
 
 Credits
