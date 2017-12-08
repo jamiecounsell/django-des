@@ -3,23 +3,12 @@ function stop_event(e) {
     e.preventDefault();
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function(event) {
     var input = document.getElementById('django_des--test-input');
     var form = document.getElementById('django_des--test-form');
     var button = document.getElementById('django_des--test-button');
-    
+
     input.addEventListener('click', function(e){
         stop_event(e);
-        button.classList.remove("error");
     });
-
-    form.addEventListener('submit', function(e){
-        stop_event(e);
-        var email = e.target.elements.email.value;
-        if (email) {
-            e.target.submit();
-        } else {
-            button.classList.add("error");
-        }
-    });
-})
+});

@@ -2,9 +2,11 @@
 from django_des.models import DynamicEmailConfiguration
 from django.contrib import admin
 from solo.admin import SingletonModelAdmin
+from django_des.forms import DynamicEmailConfigurationForm
 
 
 class DynamicEmailConfigurationAdmin(SingletonModelAdmin):
+    form = DynamicEmailConfigurationForm
     class Media:
         js = ('js/django_des.js'),
         css = {

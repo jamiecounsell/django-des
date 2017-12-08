@@ -35,6 +35,18 @@ Add it to your `INSTALLED_APPS`:
         ...
     )
 
+Add Django Dynamic Email Settings's URL patterns:
+
+.. code-block:: python
+
+    from django_des import urls as django_des_urls
+
+
+    urlpatterns = [
+    ...    url(r'django-des^', include(django_des_urls)),
+    ...]
+
+
 Features
 --------
 
