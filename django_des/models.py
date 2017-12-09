@@ -26,13 +26,13 @@ class DynamicEmailConfiguration(SingletonModel):
         max_length = 256, verbose_name = "Email User Password")
 
     email_use_tls = models.BooleanField(
-        default = False, verbose_name = "Use TLS?")
+        default = False, verbose_name = "Use TLS")
 
     email_use_ssl = models.BooleanField(
-        default = False, verbose_name = "Use SSL?")
+        default = False, verbose_name = "Use SSL")
 
     email_fail_silently = models.BooleanField(
-        default = False, verbose_name = "Fail Silently?")
+        default = False, verbose_name = "Fail Silently")
 
     email_timeout = models.SmallIntegerField(
         blank = False, null = False, default = 60,
@@ -49,5 +49,6 @@ class DynamicEmailConfiguration(SingletonModel):
 
     class Meta:
         verbose_name = "Email Configuration"
+
 
 __all__ = ['DynamicEmailConfiguration']
