@@ -16,6 +16,8 @@ class ViewsTestCase(TestCase):
         self.password = 'secret'
         self.admin= User.objects.create_superuser(
             'admin', 'example-email@website.com', self.password)
+        self.non_admin= User.objects.create_user(
+            'notadmin', 'example-email@anotherwebsite.com', self.password)
         self.client = Client()
         self.client.login(
             username = self.admin.username,
@@ -32,6 +34,32 @@ class ViewsTestCase(TestCase):
         })
 
         self.assertTrue(send_mail.call_count)
+
+    @patch('des.views.send_mail', return_value = 1)
+    def test_send_test_email_send_mail_not_invoked_for_non_admin(self, send_mail):
+        self.client.logout()
+        self.client.login(
+            username = self.non_admin.username,
+            password = self.password)
+        url = reverse('des-test-email')
+        email = 'testemail@website.com'
+        response = self.client.post(url, {
+            'email': email
+        })
+
+    @patch('des.views.send_mail', return_value = 1)
+    def test_send_test_email_hides_endpoint_for_non_admin(self, send_mail):
+        self.client.logout()
+        self.client.login(
+            username = self.non_admin.username,
+            password = self.password)
+        url = reverse('des-test-email')
+        email = 'testemail@website.com'
+        response = self.client.post(url, {
+            'email': email
+        })
+
+        self.assertEqual(response.status_code, 404)
 
     @override_settings(EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend')
     @patch('des.views.send_mail', return_value = 1)
