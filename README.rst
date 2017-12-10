@@ -38,6 +38,14 @@ Add it to your `INSTALLED_APPS`:
         ...
     )
 
+Add the dynamic email configuration email backend to `settings.py`
+
+.. code-block:: python
+
+
+    EMAIL_BACKEND = 'django_des.backends.ConfiguredEmailBackend'
+
+
 To enable test email support, add Django DES's URL patterns:
 
 .. code-block:: python
@@ -46,8 +54,9 @@ To enable test email support, add Django DES's URL patterns:
 
 
     urlpatterns = [
-    ...    url(r'^django-des/', include(django_des_urls)),
-    ...]
+        ...
+        url(r'^django-des/', include(django_des_urls)),
+    ]
 
 
 Features
@@ -56,7 +65,6 @@ Features
 * Configure email on the fly, no need to restart the server
 * Send test emails from the Django Admin panel
 * Test text and HTML email sending
-
 * Supports third party mail packages like `django-mailer <https://github.com/pinax/django-mailer>`_
 
 
