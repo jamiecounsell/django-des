@@ -1,13 +1,14 @@
-from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.views.decorators.http import require_http_methods
 from django.contrib import messages
 from django.template import loader
 from django.conf import settings
 from django.core.mail import send_mail
+from django.utils.translation import ugettext as _
 from django_des.models import DynamicEmailConfiguration
+from django_des.helpers import get_configuration_admin_url
 
-subject = getattr(settings, 'DES_TEST_SUBJECT', "Test Email")
+subject = getattr(settings, 'DES_TEST_SUBJECT', _("Test Email"))
 text_template = getattr(settings, 'DES_TEST_TEXT_TEMPLATE', "des/test_email.txt")
 html_template = getattr(settings, 'DES_TEST_HTML_TEMPLATE', None)
 
@@ -30,23 +31,18 @@ def send_test_email(request):
                 html_message = message_html)
 
             messages.success(request,
-                ("Test email sent. Please check \"{}\" for a "
+                 _("Test email sent. Please check \"{}\" for a "
                  "message with the subject \"{}\"").format(
                     email,
                     subject
                 )
             )
         except Exception as e:
-            messages.error(request, "Could not send email. {}".format(e))
+            messages.error(request, _("Could not send email. {}").format(e))
     else:
-        messages.error(request, "You must provide an email address to test with.")
+        messages.error(request, _("You must provide an email address to test with."))
 
-    meta = DynamicEmailConfiguration._meta
-    return HttpResponseRedirect(
-        reverse('admin:{}_{}_change'.format(
-            meta.app_label, meta.model_name
-        ))
-    )
+    return HttpResponseRedirect(get_configuration_admin_url())
 
 
 __all__ = ['send_test_email']
