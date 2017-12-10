@@ -53,7 +53,9 @@ Features
 * Configure email on the fly, no need to restart the server
 * Send test emails from the Django Admin panel
 * Test text and HTML email sending
-* Supports third party mail packages like `mailer`
+
+* Supports third party mail packages like `django-mailer <https://github.com/pinax/django-mailer>`_
+
 
 
 Support
