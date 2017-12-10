@@ -20,7 +20,9 @@ class DynamicEmailConfigurationTestCase(TestCase):
         except ValidationError:
             pass # Test succeeded
         except Exception:
-            self.fail("Incorrect exception thrown:" + traceback.format_exc())
+            self.fail("Incorrect exception thrown: {}".format(
+                traceback.format_exc()
+            ))
 
     def test_use_tls_and_not_use_ssl_works(self):
         try:
