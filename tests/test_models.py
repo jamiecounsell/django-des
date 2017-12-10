@@ -39,3 +39,8 @@ class DynamicEmailConfigurationTestCase(TestCase):
             configuration.clean()
         except Exception:
             self.fail("Exception thrown:" + traceback.format_exc())
+
+    def test___str___works(self):
+        configuration = DynamicEmailConfiguration()
+        self.assertIsNotNone(configuration.__str__())
+        self.assertNotEqual(configuration.__str__(), "")

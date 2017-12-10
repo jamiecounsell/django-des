@@ -7,23 +7,23 @@ from django.core.exceptions import ValidationError
 
 class DynamicEmailConfiguration(SingletonModel):
     email_host = models.CharField(
-        default = 'localhost',
+        blank = True, null = True,
         max_length = 256, verbose_name = _("Email Host"))
 
     email_port = models.SmallIntegerField(
-        blank = False, null = False, default = 25,
+        blank = True, null = True,
         verbose_name = _("Email Port"))
 
     email_from_email = models.CharField(
-        default = 'django@localhost',
+        blank = True, null = True,
         max_length = 256, verbose_name = _("Default From Email"))
 
     email_host_user = models.CharField(
-        blank = True, null = False,
+        blank = True, null = True,
         max_length = 256, verbose_name = _("Email User"))
 
     email_host_password = models.CharField(
-        blank = True, null = False,
+        blank = True, null = True,
         max_length = 256, verbose_name = _("Email User Password"))
 
     email_use_tls = models.BooleanField(
@@ -36,7 +36,7 @@ class DynamicEmailConfiguration(SingletonModel):
         default = False, verbose_name = _("Fail Silently"))
 
     email_timeout = models.SmallIntegerField(
-        blank = False, null = False, default = 60,
+        blank = True, null = True,
         verbose_name = _("Email Send Timeout (seconds)"))
 
     def clean(self):
