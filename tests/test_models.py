@@ -13,8 +13,8 @@ class DynamicEmailConfigurationTestCase(TestCase):
     def test_use_ssl_and_use_tls_raises(self):
         configuration = DynamicEmailConfiguration()
         try:
-            configuration.email_use_ssl = True
-            configuration.email_use_tls = True
+            configuration.use_ssl = True
+            configuration.use_tls = True
             configuration.clean()
             self.fail("No exception thrown. Expected ValidationError")
         except ValidationError:
@@ -25,8 +25,8 @@ class DynamicEmailConfigurationTestCase(TestCase):
     def test_use_tls_and_not_use_ssl_works(self):
         try:
             configuration = DynamicEmailConfiguration()
-            configuration.email_use_ssl = False
-            configuration.email_use_tls = True
+            configuration.use_ssl = False
+            configuration.use_tls = True
             configuration.clean()
         except Exception:
             self.fail("Exception thrown:" + traceback.format_exc())
@@ -34,8 +34,8 @@ class DynamicEmailConfigurationTestCase(TestCase):
     def test_use_ssl_and_not_use_tls_works(self):
         try:
             configuration = DynamicEmailConfiguration()
-            configuration.email_use_ssl = True
-            configuration.email_use_tls = False
+            configuration.use_ssl = True
+            configuration.use_tls = False
             configuration.clean()
         except Exception:
             self.fail("Exception thrown:" + traceback.format_exc())

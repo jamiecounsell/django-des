@@ -12,4 +12,31 @@ class ConfiguredEmailBackendTestCase(TestCase):
 
     def setUp(self):
         self.configuration = DynamicEmailConfiguration()
-        self.backend = ConfiguredEmailBackend()
+
+    def test_backend_honors_configured_host(self):
+        host = 'testhost.mysite.com'
+        self.configuration.host = host
+        self.configuration.save()
+        backend = ConfiguredEmailBackend()
+        self.assertEqual(backend.host, host)
+
+    def test_backend_honors_configured_port(self):
+        port = 123
+        self.configuration.port = port
+        self.configuration.save()
+        backend = ConfiguredEmailBackend()
+        self.assertEqual(backend.port, port)
+
+    def test_backend_honors_configured_username(self):
+        username = 'awesomeuser'
+        self.configuration.username = username
+        self.configuration.save()
+        backend = ConfiguredEmailBackend()
+        self.assertEqual(backend.username, username)
+
+    def test_backend_honors_configured_password(self):
+        password = 'secret'
+        self.configuration.password = password
+        self.configuration.save()
+        backend = ConfiguredEmailBackend()
+        self.assertEqual(backend.password, password)
