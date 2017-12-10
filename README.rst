@@ -11,7 +11,7 @@ Django Dynamic Email Settings
 .. image:: https://codecov.io/gh/jamiecounsell/django-des/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/jamiecounsell/django-des
 
-A reusable Django application and EmailBackend that allows email configuration to be changed while the server is running.
+A reusable Django application, admin panel, and EmailBackend that allows email configuration to be changed while the server is running. The goal of the project is to be the absolute easiest way to get email configured across multiple environments.
 
 Documentation
 -------------
@@ -35,7 +35,7 @@ Add it to your `INSTALLED_APPS`:
         ...
     )
 
-Add Django Dynamic Email Settings's URL patterns:
+To enable test email support, add Django DES's URL patterns:
 
 .. code-block:: python
 
@@ -43,14 +43,37 @@ Add Django Dynamic Email Settings's URL patterns:
 
 
     urlpatterns = [
-    ...    url(r'django-des^', include(django_des_urls)),
+    ...    url(r'^django-des/', include(django_des_urls)),
     ...]
 
 
 Features
 --------
 
-* TODO
+* Configure email on the fly, no need to restart the server
+* Send test emails from the Django Admin panel
+* Test text and HTML email sending
+* Supports third party mail packages like `mailer`
+
+
+Support
+-------------
+
+**Python**
+
+* 2.7
+* 3.3
+* 3.4
+* 3.5
+* 3.6
+
+**Django**
+
+* 1.8
+* 1.9
+* 1.10
+* 1.11
+* 2.0
 
 Running Tests
 -------------
