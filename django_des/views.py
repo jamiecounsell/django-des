@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 from django_des.models import DynamicEmailConfiguration
 
 subject = getattr(settings, 'DES_TEST_SUBJECT', "Test Email")
-text_template = getattr(settings, 'DES_TEST_TEXT_TEMPLATE', "des/test.txt")
+text_template = getattr(settings, 'DES_TEST_TEXT_TEMPLATE', "des/test_email.txt")
 html_template = getattr(settings, 'DES_TEST_HTML_TEMPLATE', None)
 
 message_text = loader.render_to_string(text_template)
