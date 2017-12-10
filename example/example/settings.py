@@ -121,3 +121,7 @@ STATIC_URL = '/static/'
 # Email configuration
 
 EMAIL_BACKEND = 'django_des.backends.ConfiguredEmailBackend'
+
+DES_TEST_SUBJECT = "My Test Email Subject"
+DES_TEST_TEXT_TEMPLATE = "email/test_email.txt"
+DES_TEST_HTML_TEMPLATE = "email/test_email.html"
