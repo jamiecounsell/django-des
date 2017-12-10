@@ -6,41 +6,41 @@ from django.core.exceptions import ValidationError
 
 
 class DynamicEmailConfiguration(SingletonModel):
-    email_host = models.CharField(
+    host = models.CharField(
         blank = True, null = True,
         max_length = 256, verbose_name = _("Email Host"))
 
-    email_port = models.SmallIntegerField(
+    port = models.SmallIntegerField(
         blank = True, null = True,
         verbose_name = _("Email Port"))
 
-    email_from_email = models.CharField(
+    from_email = models.CharField(
         blank = True, null = True,
         max_length = 256, verbose_name = _("Default From Email"))
 
-    email_host_user = models.CharField(
+    username = models.CharField(
         blank = True, null = True,
-        max_length = 256, verbose_name = _("Email User"))
+        max_length = 256, verbose_name = _("Email Authentication Username"))
 
-    email_host_password = models.CharField(
+    password = models.CharField(
         blank = True, null = True,
-        max_length = 256, verbose_name = _("Email User Password"))
+        max_length = 256, verbose_name = _("Email Authentication Password"))
 
-    email_use_tls = models.BooleanField(
+    use_tls = models.BooleanField(
         default = False, verbose_name = _("Use TLS"))
 
-    email_use_ssl = models.BooleanField(
+    use_ssl = models.BooleanField(
         default = False, verbose_name = _("Use SSL"))
 
-    email_fail_silently = models.BooleanField(
+    fail_silently = models.BooleanField(
         default = False, verbose_name = _("Fail Silently"))
 
-    email_timeout = models.SmallIntegerField(
+    timeout = models.SmallIntegerField(
         blank = True, null = True,
         verbose_name = _("Email Send Timeout (seconds)"))
 
     def clean(self):
-        if self.email_use_ssl and self.email_use_tls:
+        if self.use_ssl and self.use_tls:
             raise ValidationError(
                 _("\"Use TLS\" and \"Use SSL\" are mutually exclusive, "
                 "so only set one of those settings to True."))

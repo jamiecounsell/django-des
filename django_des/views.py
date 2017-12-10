@@ -26,7 +26,7 @@ def send_test_email(request):
             send_mail(
                 subject,
                 message_text,
-                config.email_from_email,
+                config.from_email or None,
                 [email],
                 html_message = message_html)
 

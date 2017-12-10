@@ -7,5 +7,5 @@ class DynamicEmailConfigurationForm(ModelForm):
         model = DynamicEmailConfiguration
         exclude = []
         widgets = {
-            'email_host_password': PasswordInput(render_value=True),
+            "password": PasswordInput(render_value=True),
         }
