@@ -1,14 +1,14 @@
 Django Dynamic Email Settings
 =============================
 
-|image1| |image2| |image3|
+|image1| |image2| |image3| |image4|
 
 A reusable Django application, admin panel, and EmailBackend that allows
 email configuration to be changed while the server is running. The goal
 of the project is to be the absolute easiest way to get email configured
 across multiple environments.
 
-|image4|
+|image5|
 
 Quickstart
 ----------
@@ -128,10 +128,12 @@ Tools used in rendering this package:
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _cookiecutter-djangopackage: https://github.com/pydanny/cookiecutter-djangopackage
 
-.. |image1| image:: https://badge.fury.io/py/django-des.svg
-   :target: https://badge.fury.io/py/django-des
-.. |image2| image:: https://travis-ci.org/jamiecounsell/django-des.svg?branch=master
+.. |image1| image:: https://img.shields.io/pypi/v/django-des.svg
+   :target: https://pypi.python.org/pypi/django-des
+.. |image2| image:: https://img.shields.io/travis/jamiecounsell/django-des.svg
    :target: https://travis-ci.org/jamiecounsell/django-des
-.. |image3| image:: https://codecov.io/gh/jamiecounsell/django-des/branch/master/graph/badge.svg
+.. |image3| image:: https://img.shields.io/codecov/c/github/jamiecounsell/django-des.svg
    :target: https://codecov.io/gh/jamiecounsell/django-des
-.. |image4| image:: https://user-images.githubusercontent.com/2321599/33807503-d7f31922-dda5-11e7-83c9-c4e7ef557cc6.png
+.. |image4| image:: https://img.shields.io/pypi/l/django-des.svg
+   :target: https://github.com/jamiecounsell/django-des/blob/master/LICENSE
+.. |image5| image:: https://user-images.githubusercontent.com/2321599/33807503-d7f31922-dda5-11e7-83c9-c4e7ef557cc6.png
