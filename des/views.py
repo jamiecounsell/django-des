@@ -5,8 +5,8 @@ from django.template import loader
 from django.conf import settings
 from django.core.mail import send_mail
 from django.utils.translation import ugettext as _
-from django_des.models import DynamicEmailConfiguration
-from django_des.helpers import get_configuration_admin_url
+from des.models import DynamicEmailConfiguration
+from des.helpers import get_configuration_admin_url
 
 subject = getattr(settings, 'DES_TEST_SUBJECT', _("Test Email"))
 text_template = getattr(settings, 'DES_TEST_TEXT_TEMPLATE', "des/test_email.txt")

@@ -1,5 +1,5 @@
 from django.forms import ModelForm, PasswordInput
-from django_des.models import DynamicEmailConfiguration
+from des.models import DynamicEmailConfiguration
 
 
 class DynamicEmailConfigurationForm(ModelForm):

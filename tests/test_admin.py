@@ -3,7 +3,7 @@ from __future__ import print_function
 
 from django.contrib.auth.models import User
 from django.test import Client, TestCase
-from django_des.helpers import get_configuration_admin_url
+from des.helpers import get_configuration_admin_url
 
 
 class AdminTestCase(TestCase):
@@ -20,4 +20,4 @@ class AdminTestCase(TestCase):
             username = self.admin.username,
             password = self.password)
         response = self.client.get(url)
-        self.assertIn('django_des--test-button', str(response.content))
+        self.assertIn('des--test-button', str(response.content))

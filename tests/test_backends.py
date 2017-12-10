@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import traceback
 from django.test import TestCase, override_settings
-from django_des.models import DynamicEmailConfiguration
-from django_des.backends import ConfiguredEmailBackend
+from des.models import DynamicEmailConfiguration
+from des.backends import ConfiguredEmailBackend
 try:
     from django.urls import reverse
 except ImportError:

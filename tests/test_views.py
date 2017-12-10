@@ -2,7 +2,7 @@
 from django.test import TestCase, Client, override_settings
 from smtplib import SMTPException
 from django.contrib.auth.models import User
-from django_des.models import DynamicEmailConfiguration
+from des.models import DynamicEmailConfiguration
 from mock.mock import patch
 try:
     from django.urls import reverse
@@ -23,9 +23,9 @@ class ViewsTestCase(TestCase):
         self.configuration = DynamicEmailConfiguration()
 
 
-    @patch('django_des.views.send_mail', return_value = 1)
+    @patch('des.views.send_mail', return_value = 1)
     def test_send_test_email_send_mail_invoked(self, send_mail):
-        url = reverse('django-des-test-email')
+        url = reverse('des-test-email')
         email = 'testemail@website.com'
         response = self.client.post(url, {
             'email': email
@@ -34,10 +34,10 @@ class ViewsTestCase(TestCase):
         self.assertTrue(send_mail.call_count)
 
     @override_settings(EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend')
-    @patch('django_des.views.send_mail', return_value = 1)
+    @patch('des.views.send_mail', return_value = 1)
     def test_send_test_email_returns_error_for_send_mail_exception(self, send_mail):
         send_mail.side_effect = SMTPException()
-        url = reverse('django-des-test-email')
+        url = reverse('des-test-email')
         email = 'testemail@website.com'
         response = self.client.post(url, {
             'email': email
@@ -50,7 +50,7 @@ class ViewsTestCase(TestCase):
 
     @override_settings(EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend')
     def test_send_test_email_returns_error_for_no_email(self):
-        url = reverse('django-des-test-email')
+        url = reverse('des-test-email')
         response = self.client.post(url, {})
         self.assertIsNotNone(response.wsgi_request._messages)
         messages = list(response.wsgi_request._messages)
@@ -59,9 +59,9 @@ class ViewsTestCase(TestCase):
         self.assertIn('You must provide an email address', messages[0].message)
 
     @override_settings(EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend')
-    @patch('django_des.views.send_mail', return_value = 1)
+    @patch('des.views.send_mail', return_value = 1)
     def test_send_test_email_does_not_invoke_send_mail_for_empty_email(self, send_mail):
         send_mail.side_effect = SMTPException()
-        url = reverse('django-des-test-email')
+        url = reverse('des-test-email')
         self.client.post(url, {})
         self.assertEqual(send_mail.call_count, 0)

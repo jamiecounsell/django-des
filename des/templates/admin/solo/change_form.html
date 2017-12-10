@@ -17,11 +17,11 @@ https://github.com/lazybird/django-solo
 {% block object-tools-items %}
 <li><a href="{% url opts|admin_urlname:'history' %}" class="historylink">{% trans "History" %}</a></li>
 <li>
-    <form id="django_des--test-form" action="{% url 'django-des-test-email' %}" method="POST">
-        <button type="submit" id="django_des--test-button">
+    <form id="des--test-form" action="{% url 'des-test-email' %}" method="POST">
+        <button type="submit" id="des--test-button">
             {% csrf_token %}
             {% trans "Send Test Email" %}:
-            <input name="email" id="django_des--test-input" placeholder="example-email@website.com">
+            <input name="email" id="des--test-input" placeholder="example-email@website.com">
         </button>
     </form>
 </li>

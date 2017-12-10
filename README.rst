@@ -25,7 +25,7 @@ Quickstart
 
        INSTALLED_APPS = (
            ...
-           'django_des',
+           'des',
            ...
        )
 
@@ -33,18 +33,18 @@ Quickstart
 
    .. code:: python
 
-       EMAIL_BACKEND = 'django_des.backends.ConfiguredEmailBackend'
+       EMAIL_BACKEND = 'des.backends.ConfiguredEmailBackend'
 
 -  To enable test email support, add Django DES's URL patterns:
 
    .. code:: python
 
-       from django_des import urls as django_des_urls
+       from des import urls as des_urls
 
 
        urlpatterns = [
            ...
-           url(r'^django-des/', include(django_des_urls)),
+           url(r'^django-des/', include(des_urls)),
        ]
 
 Settings

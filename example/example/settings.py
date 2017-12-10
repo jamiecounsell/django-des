@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django_des',
+    'des',
 
     # if your app has other dependencies that need to be added to the site
     # they should be added here
@@ -120,7 +120,7 @@ STATIC_URL = '/static/'
 
 # Email configuration
 
-EMAIL_BACKEND = 'django_des.backends.ConfiguredEmailBackend'
+EMAIL_BACKEND = 'des.backends.ConfiguredEmailBackend'
 
 DES_TEST_SUBJECT = "My Test Email Subject"
 DES_TEST_TEXT_TEMPLATE = "email/test_email.txt"

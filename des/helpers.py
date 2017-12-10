@@ -1,4 +1,4 @@
-from django_des.models import DynamicEmailConfiguration
+from des.models import DynamicEmailConfiguration
 try:
     from django.urls import reverse
 except ImportError:

@@ -2,7 +2,7 @@
 import traceback
 from django.test import TestCase
 from django.core.exceptions import ValidationError
-from django_des.models import DynamicEmailConfiguration
+from des.models import DynamicEmailConfiguration
 
 
 class DynamicEmailConfigurationTestCase(TestCase):

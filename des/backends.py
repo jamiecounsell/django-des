@@ -8,7 +8,7 @@ class ConfiguredEmailBackend(EmailBackend):
                  ssl_keyfile=None, ssl_certfile=None,
                  **kwargs):
 
-        from django_des.models import DynamicEmailConfiguration
+        from des.models import DynamicEmailConfiguration
         configuration = DynamicEmailConfiguration.get_solo()
 
         super(ConfiguredEmailBackend, self).__init__(
