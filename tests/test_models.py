@@ -21,3 +21,21 @@ class DynamicEmailConfigurationTestCase(TestCase):
             pass # Test succeeded
         except Exception:
             self.fail("Incorrect exception thrown:" + traceback.format_exc())
+
+    def test_use_tls_and_not_use_ssl_works(self):
+        try:
+            configuration = DynamicEmailConfiguration()
+            configuration.email_use_ssl = False
+            configuration.email_use_tls = True
+            configuration.clean()
+        except Exception:
+            self.fail("Exception thrown:" + traceback.format_exc())
+
+    def test_use_ssl_and_not_use_tls_works(self):
+        try:
+            configuration = DynamicEmailConfiguration()
+            configuration.email_use_ssl = True
+            configuration.email_use_tls = False
+            configuration.clean()
+        except Exception:
+            self.fail("Exception thrown:" + traceback.format_exc())

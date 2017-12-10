@@ -35,7 +35,7 @@ class ViewsTestCase(TestCase):
 
     @override_settings(EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend')
     @patch('django_des.views.send_mail', return_value = 1)
-    def test_send_test_email_returns_error_for_no_email(self, send_mail):
+    def test_send_test_email_returns_error_for_send_mail_exception(self, send_mail):
         send_mail.side_effect = SMTPException()
         url = reverse('django-des-test-email')
         email = 'testemail@website.com'
@@ -47,3 +47,21 @@ class ViewsTestCase(TestCase):
         self.assertTrue('messages' in response.cookies)
         self.assertEqual(len(messages), 1)
         self.assertIn('Could not send email', messages[0].message)
+
+    @override_settings(EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend')
+    def test_send_test_email_returns_error_for_no_email(self):
+        url = reverse('django-des-test-email')
+        response = self.client.post(url, {})
+        self.assertIsNotNone(response.wsgi_request._messages)
+        messages = list(response.wsgi_request._messages)
+        self.assertTrue('messages' in response.cookies)
+        self.assertEqual(len(messages), 1)
+        self.assertIn('You must provide an email address', messages[0].message)
+
+    @override_settings(EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend')
+    @patch('django_des.views.send_mail', return_value = 1)
+    def test_send_test_email_does_not_invoke_send_mail_for_empty_email(self, send_mail):
+        send_mail.side_effect = SMTPException()
+        url = reverse('django-des-test-email')
+        self.client.post(url, {})
+        self.assertEqual(send_mail.call_count, 0)
