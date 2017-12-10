@@ -20,13 +20,14 @@ Documentation
 -------------
 
 The full documentation is at https://django-des.readthedocs.io.
+You can read more about why I made this at
 
 Quickstart
 ----------
 
 Install Django Dynamic Email Settings::
 
-    pip install django-des
+    $ pip install django-des
 
 Add it to your `INSTALLED_APPS`:
 
