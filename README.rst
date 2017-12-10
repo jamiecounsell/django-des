@@ -13,7 +13,7 @@ Django Dynamic Email Settings
 
 A reusable Django application, admin panel, and EmailBackend that allows email configuration to be changed while the server is running. The goal of the project is to be the absolute easiest way to get email configured across multiple environments.
 
-.. image:: https://user-images.githubusercontent.com/2321599/33801548-635ffd42-dd2c-11e7-8a44-162969f2ee36.png
+.. image:: https://user-images.githubusercontent.com/2321599/33807503-d7f31922-dda5-11e7-83c9-c4e7ef557cc6.png
 
 
 Documentation
