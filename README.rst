@@ -35,6 +35,8 @@ Quickstart
 
        EMAIL_BACKEND = 'des.backends.ConfiguredEmailBackend'
 
+-  Run ``manage.py migrate des``
+
 -  To enable test email support, add Django DES's URL patterns:
 
    .. code:: python
