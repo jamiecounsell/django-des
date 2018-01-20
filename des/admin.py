@@ -7,6 +7,7 @@ from des.forms import DynamicEmailConfigurationForm
 
 class DynamicEmailConfigurationAdmin(SingletonModelAdmin):
     form = DynamicEmailConfigurationForm
+    change_form_template = 'des/change_form.html'
     class Media:
         js = ('js/des.js'),
         css = {
