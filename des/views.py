@@ -30,7 +30,7 @@ def send_test_email(request):
             send_mail(
                 subject,
                 message_text,
-                config.from_email or None,
+                config.from_email.decode('utf-8').encode("idna") or None,
                 [email],
                 html_message = message_html)
 
