@@ -14,7 +14,7 @@ class ConfiguredEmailBackend(EmailBackend):
         super(ConfiguredEmailBackend, self).__init__(
              host = configuration.host if host is None else host,
              port = configuration.port if port is None else port,
-             username = configuration.username.decode('utf-8').encode("idna") if username is None else username,
+             username = configuration.username if username is None else username,
              password = configuration.password if password is None else password,
              use_tls = configuration.use_tls if use_tls is None else use_tls,
              fail_silently = configuration.fail_silently if fail_silently is None else fail_silently,
