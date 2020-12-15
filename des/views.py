@@ -19,7 +19,7 @@ message_html = loader.render_to_string(html_template) if html_template else None
 @require_http_methods(["POST"])
 def send_test_email(request):
 
-    if request.user is None or not request.user.is_staff:
+    if not request.user.is_staff:
         return HttpResponseNotFound()
 
     email = request.POST.get('email', None)
