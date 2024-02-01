@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.auth",
     "django.contrib.sessions",
+    "django.contrib.messages",
     "des",
 ]
 
@@ -65,3 +66,5 @@ TEMPLATES = [
         },
     },
 ]
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"

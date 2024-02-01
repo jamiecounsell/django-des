@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.template import loader
 from django.conf import settings
 from django.core.mail import send_mail
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from des.models import DynamicEmailConfiguration
 from des.helpers import get_configuration_admin_url
 
