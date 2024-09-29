@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import traceback
-from django.test import TestCase
+
 from django.core.exceptions import ValidationError
+from django.test import TestCase
+
 from des.models import DynamicEmailConfiguration
 
 
@@ -18,11 +20,9 @@ class DynamicEmailConfigurationTestCase(TestCase):
             configuration.clean()
             self.fail("No exception thrown. Expected ValidationError")
         except ValidationError:
-            pass # Test succeeded
+            pass  # Test succeeded
         except Exception:
-            self.fail("Incorrect exception thrown: {}".format(
-                traceback.format_exc()
-            ))
+            self.fail("Incorrect exception thrown: {}".format(traceback.format_exc()))
 
     def test_use_tls_and_not_use_ssl_works(self):
         try:

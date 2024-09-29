@@ -1,4 +1,5 @@
 from des.models import DynamicEmailConfiguration
+
 try:
     from django.urls import reverse
 except ImportError:
@@ -7,8 +8,7 @@ except ImportError:
 
 def get_configuration_admin_url():
     meta = DynamicEmailConfiguration._meta
-    return reverse('admin:{}_{}_change'.format(
-        meta.app_label, meta.model_name
-    ))
+    return reverse("admin:{}_{}_change".format(meta.app_label, meta.model_name))
 
-__all__ = ['get_configuration_admin_url']
+
+__all__ = ["get_configuration_admin_url"]

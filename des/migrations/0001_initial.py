@@ -9,26 +9,77 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='DynamicEmailConfiguration',
+            name="DynamicEmailConfiguration",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('host', models.CharField(blank=True, max_length=256, null=True, verbose_name='Email Host')),
-                ('port', models.SmallIntegerField(blank=True, null=True, verbose_name='Email Port')),
-                ('from_email', models.CharField(blank=True, max_length=256, null=True, verbose_name='Default From Email')),
-                ('username', models.CharField(blank=True, max_length=256, null=True, verbose_name='Email Authentication Username')),
-                ('password', models.CharField(blank=True, max_length=256, null=True, verbose_name='Email Authentication Password')),
-                ('use_tls', models.BooleanField(default=False, verbose_name='Use TLS')),
-                ('use_ssl', models.BooleanField(default=False, verbose_name='Use SSL')),
-                ('fail_silently', models.BooleanField(default=False, verbose_name='Fail Silently')),
-                ('timeout', models.SmallIntegerField(blank=True, null=True, verbose_name='Email Send Timeout (seconds)')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "host",
+                    models.CharField(
+                        blank=True, max_length=256, null=True, verbose_name="Email Host"
+                    ),
+                ),
+                (
+                    "port",
+                    models.SmallIntegerField(
+                        blank=True, null=True, verbose_name="Email Port"
+                    ),
+                ),
+                (
+                    "from_email",
+                    models.CharField(
+                        blank=True,
+                        max_length=256,
+                        null=True,
+                        verbose_name="Default From Email",
+                    ),
+                ),
+                (
+                    "username",
+                    models.CharField(
+                        blank=True,
+                        max_length=256,
+                        null=True,
+                        verbose_name="Email Authentication Username",
+                    ),
+                ),
+                (
+                    "password",
+                    models.CharField(
+                        blank=True,
+                        max_length=256,
+                        null=True,
+                        verbose_name="Email Authentication Password",
+                    ),
+                ),
+                ("use_tls", models.BooleanField(default=False, verbose_name="Use TLS")),
+                ("use_ssl", models.BooleanField(default=False, verbose_name="Use SSL")),
+                (
+                    "fail_silently",
+                    models.BooleanField(default=False, verbose_name="Fail Silently"),
+                ),
+                (
+                    "timeout",
+                    models.SmallIntegerField(
+                        blank=True,
+                        null=True,
+                        verbose_name="Email Send Timeout (seconds)",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Email Configuration',
+                "verbose_name": "Email Configuration",
             },
         ),
     ]
