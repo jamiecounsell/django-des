@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals, absolute_import
+from __future__ import absolute_import, unicode_literals
 
-from django.conf.urls import url, include
 from django.contrib import admin
+from django.urls import include, path
+
 from des import urls as des_urls
 
-
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^django-des/', include(des_urls))
-]
+urlpatterns = [path("admin/", admin.site.urls), path("django-des/", include(des_urls))]
