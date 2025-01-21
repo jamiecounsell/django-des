@@ -1,2 +1,2 @@
-__version__ = '2.4.1'
-default_app_config = 'des.apps.DjangoDesConfig'
+__version__ = "3.0.0"
+default_app_config = "des.apps.DjangoDesConfig"
